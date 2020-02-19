@@ -3045,7 +3045,7 @@ func TestValidateErrorPageReturn(t *testing.T) {
 			ActionReturn: v1.ActionReturn{
 				Code: 0,
 				Type: "",
-				Body: "Could not process request, try again. Status ${status}",
+				Body: "Could not process request, try again. Upstream status ${upstream_status}",
 			},
 			Headers: []v1.Header{
 				{
@@ -3058,7 +3058,7 @@ func TestValidateErrorPageReturn(t *testing.T) {
 			ActionReturn: v1.ActionReturn{
 				Code: 200,
 				Type: "application/json",
-				Body: `{\"message\": \"Could not process request, try again\", \"status\": \"${status}\"}`,
+				Body: `{\"message\": \"Could not process request, try again\", \"upstream_status\": \"${upstream_status}\"}`,
 			},
 			Headers: nil,
 		},
@@ -3211,7 +3211,7 @@ func TestValidateErrorPageHeader(t *testing.T) {
 		},
 		{
 			Name:  "Header-Name",
-			Value: "${status}",
+			Value: "${upstream_status}",
 		},
 	}
 

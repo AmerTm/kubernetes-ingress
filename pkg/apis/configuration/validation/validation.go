@@ -645,7 +645,7 @@ func validateErrorPage(errorPage v1.ErrorPage, fieldPath *field.Path) field.Erro
 	return allErrs
 }
 
-var errorPageReturnBodyVariable = map[string]bool{"status": true}
+var errorPageReturnBodyVariable = map[string]bool{"upstream_status": true}
 
 func validateErrorPageReturn(r *v1.ErrorPageReturn, fieldPath *field.Path) field.ErrorList {
 	allErrs := field.ErrorList{}
@@ -659,7 +659,7 @@ func validateErrorPageReturn(r *v1.ErrorPageReturn, fieldPath *field.Path) field
 	return allErrs
 }
 
-var errorPageHeaderValueVariables = map[string]bool{"status": true}
+var errorPageHeaderValueVariables = map[string]bool{"upstream_status": true}
 
 func validateErrorPageHeader(h v1.Header, fieldPath *field.Path) field.ErrorList {
 	allErrs := field.ErrorList{}
@@ -682,7 +682,7 @@ func validateErrorPageHeader(h v1.Header, fieldPath *field.Path) field.ErrorList
 	return allErrs
 }
 
-var validErrorPageRedirectVariables = map[string]bool{"scheme": true, "status": true, "http_x_forwarded_proto": true}
+var validErrorPageRedirectVariables = map[string]bool{"scheme": true, "upstream_status": true, "http_x_forwarded_proto": true}
 
 func validateErrorPageRedirect(r *v1.ErrorPageRedirect, fieldPath *field.Path) field.ErrorList {
 	allErrs := field.ErrorList{}

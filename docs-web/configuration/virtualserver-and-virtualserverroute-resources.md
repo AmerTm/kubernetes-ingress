@@ -1008,7 +1008,7 @@ redirect:
      - ``int``
      - No
    * - ``url``
-     - The URL to redirect the request to. Supported NGINX variables: ``$scheme``\ , ``$status``\ and ``$http_x_forwarded_proto``\. Variables must be inclosed in curly braces. For example: ``${scheme}``.
+     - The URL to redirect the request to. Supported NGINX variables: ``$scheme``\ , ``$upstream_status``\ and ``$http_x_forwarded_proto``\. Variables must be inclosed in curly braces. For example: ``${scheme}``.
      - ``string``
      - Yes
 ```
@@ -1047,7 +1047,7 @@ return:
      - ``string``
      - No
    * - ``body``
-     - The body of the response. Supported NGINX variable: ``$status`` \ . Variables must be inclosed in curly braces. For example: ``${status}``.
+     - The body of the response. Supported NGINX variable: ``$upstream_status`` \ . Variables must be inclosed in curly braces. For example: ``${upstream_status}``.
      - ``string``
      - Yes
    * - ``headers``
@@ -1061,8 +1061,8 @@ return:
 The header defines an HTTP Header for a canned response in an errorPage:
 
 ```yaml
-name: x-debug-original-status
-value: ${status}
+name: x-debug-original-statuses
+value: ${upstream_status}
 ```
 
 ```eval_rst
@@ -1078,7 +1078,7 @@ value: ${status}
      - ``string``
      - Yes
    * - ``value``
-     - The value of the header. Supported NGINX variables: ``$status`` \ . Variables must be inclosed in curly braces. For example: ``${status}``.
+     - The value of the header. Supported NGINX variable: ``$upstream_status`` \ . Variables must be inclosed in curly braces. For example: ``${upstream_status}``.
      - ``string``
      - No
 ```
